@@ -224,7 +224,12 @@ async function callKiuwanApiHttpsProxy(options: https.RequestOptions, proxy_host
     let p_host = proxy_host;    tl.debug(`[KW_LGV] [callKiuwanApiHttpsProxy] proxy.host: ${p_host}`);
     let p_port = proxy_port;    tl.debug(`[KW_LGV] [callKiuwanApiHttpsProxy] proxy.port: ${p_port}`);
     let p_auth = proxy_auth;
-
+    //Pedro Farinha fixed inclusion of SSO headers
+    let proxy_headers= {
+        'Proxy-Authorization': p_auth
+    }
+    let p_options_header = options.headers 
+    let all_headers = Object.assign({}, p_options_header, proxy_headers);
 
     return new Promise((resolve, reject) => {
 
@@ -237,9 +242,7 @@ async function callKiuwanApiHttpsProxy(options: https.RequestOptions, proxy_host
             port: p_port, // port of proxy server
             method: 'CONNECT',
             path: k_hostandport, //destination, added 443 port for https!
-            headers: {
-                'Proxy-Authorization': p_auth
-            },
+            headers: all_headers, // uses all headers including the proxy auth and others set previously to send to kiuwan
         }).on('connect', (res, socket) => {
             tl.debug ('[LS] [callKiuwanApiHttpsProxy] request info: '+ http.toString());
             tl.debug ('[LS] [callKiuwanApiHttpsProxy] request info: '+ http.request.path);
@@ -295,7 +298,7 @@ async function callKiuwanApiHttpsProxyNoAuth(options: https.RequestOptions, prox
     let k_auth = options.auth;  
     let p_host = proxy_host;    tl.debug(`[KW_LS] [callKiuwanApiHttpsProxyNoAuth] proxy.host: ${p_host}`);
     let p_port = proxy_port;    tl.debug(`[KW_LS] [callKiuwanApiHttpsProxyNoAuth] proxy.port: ${p_port}`);
-    
+    let headers = options.headers
     return new Promise((resolve, reject) => {
         //Luis sanchez comment: why these new instances¿?
         //const http = require('http')
@@ -306,6 +309,7 @@ async function callKiuwanApiHttpsProxyNoAuth(options: https.RequestOptions, prox
             port: p_port, // port of proxy server
             method: 'CONNECT',
             path: k_hostandport, //added 443 port for https!
+            headers: headers // include headers prepared earlier to send to kiuwan
         }).on('connect', (res, socket) => {
             if (res.statusCode === 200) { // connected to proxy server
                 tl.debug ('[KW_LS] Connected to proxy server, doing the https call...');
