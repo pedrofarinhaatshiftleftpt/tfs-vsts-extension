@@ -8,7 +8,7 @@ import {
     downloadInstallKla, runKiuwanLocalAnalyzer, getKiuwanRetMsg, 
     auditFailed, getLastAnalysisResults, saveKiuwanResults, 
     uploadKiuwanResults, noFilesToAnalyze, isBuild, getKlaAgentPropertiesPath, processAgentProperties 
-} from 'kiuwan-common/utils';
+} from '../kiuwan-common/utils';
 
 //LS: change old deprecated for the new one
 //import { _exist } from 'vsts-task-lib/internal';
@@ -17,13 +17,13 @@ import { _exist } from 'azure-pipelines-task-lib/internal';
 import { debug } from 'azure-pipelines-task-lib/task';
 import { isUndefined } from 'util';
 
-var osPlat: string = os.platform();
-var agentHomeDir = tl.getVariable('Agent.HomeDirectory');
-var agentTempDir = tl.getVariable('Agent.TempDirectory');
+let osPlat: string = os.platform();
+let agentHomeDir = tl.getVariable('Agent.HomeDirectory');
+let agentTempDir = tl.getVariable('Agent.TempDirectory');
 if (!agentTempDir) {
     agentTempDir = setAgentTempDir(agentHomeDir, osPlat);
 }
-var agentToolsDir = tl.getVariable('Agent.ToolsDirectory');
+let agentToolsDir = tl.getVariable('Agent.ToolsDirectory');
 if (!agentToolsDir) {
     agentToolsDir = setAgentToolsDir(agentHomeDir, osPlat);
 }

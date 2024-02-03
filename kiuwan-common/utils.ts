@@ -318,7 +318,8 @@ async function callKiuwanApiHttpsProxyNoAuth(options: https.RequestOptions, prox
                     path: k_path, 
                     auth: k_auth,
                     socket: socket, // using a tunnel
-                    agent: false    // cannot use a default agent
+                    agent: false,    // cannot use a default agent,
+                    headers: headers
                 }, (res) => {
                     tl.debug ('[KW_LS] ...reading response ...');
                     let chunks = []

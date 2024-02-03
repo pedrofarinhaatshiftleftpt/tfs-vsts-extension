@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "kiuwan-analysis-extension-dev",
+    "id": "kiuwan-analysis-extension-dev-Shiftleft",
     "name": "Kiuwan Dev",
     "version": "2.3.126",
-    "publisher": "kiuwan-publisher",
+    "publisher": "Shiftleft-SecureSoftwareEngineering",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services.Cloud"
@@ -121,7 +121,7 @@
             "properties": {
                 "name": "Kiuwan",
                  "uri": "kiuwanTab.html",
-                 "supportsTasks": ["f345ac07-f8a0-4859-bcaf-d71fd62bcf37"]
+                 "supportsTasks": ["ba779fde-74c7-11ee-b962-0242ac120002"]
             }
         },
         {
@@ -135,8 +135,8 @@
                  "name": "Kiuwan Summary",
                  "uri": "kiuwanSummary.html",
                  "supportsTasks": [
-                     "f345ac07-f8a0-4859-bcaf-d71fd62bcf37",
-                     "4e6e25e3-c0b5-4986-8714-5c751945c15f"
+                     "ba779fde-74c7-11ee-b962-0242ac120002",
+                     "f2b08b72-74c7-11ee-b962-0242ac120002"
                     ],
                  "order": 20,
                  "height": 300
@@ -152,7 +152,7 @@
             "properties": {
                 "name": "Kiuwan Audit",
                  "uri": "kiuwanAuditTab.html",
-                 "supportsTasks": ["4e6e25e3-c0b5-4986-8714-5c751945c15f"]
+                 "supportsTasks": ["f2b08b72-74c7-11ee-b962-0242ac120002"]
             }
         },
         {
@@ -176,14 +176,14 @@
             }
         },
         {
-            "id": "kiuwan-service-endpoint",
+            "id": "kiuwan-service-endpoint-shiftleft",
             "description": "Kiuwan servide endpoint to connect to the Kiuwan platform",
             "type": "ms.vss-endpoint.service-endpoint-type",
             "targets": [
                 "ms.vss-endpoint.endpoint-types"
             ],
             "properties": {
-                "name": "kiuwan",
+                "name": "kiuwan-Shiftleft",
                 "displayName": "Kiuwan Platform",
                 "url": {
                     "displayName": "Kiuwan URL",

@@ -1,11 +1,10 @@
 {
  	"manifestVersion": 1,
-	"id": "kiuwan-analysis-extension",
- 	"publisher": "kiuwan-publisher",
- 	"version": "2.5.2",
- 	"version": "2.5.2",
- 	"name": "Kiuwan TFS Extension",
- 	"description": "Analyze your applications with Kiuwan in your build definitions. Find relevant security vulnerabilities in your code. Run automatic code security audits. Build secure applications from the start.",
+	"id": "kiuwan-analysis-extension-Shiftleft",
+ 	"publisher": "Shiftleft-SecureSoftwareEngineering",
+ 	"version": "2.6.3",
+ 	"name": "Shiftleft Kiuwan TFS Extension",
+ 	"description": "Shifleft: Analyze your applications with Kiuwan. Find relevant security vulnerabilities in your code. Run automatic code security audits. Build secure applications from the start.",
  	"public": true,
  	"categories": ["Azure Pipelines"],
  	"targets": [
@@ -92,6 +91,10 @@
             "addressable": true
         },
         {
+            "path": "kiuwan-common",
+            "addressable": true
+        },
+        {
             "path": "kiuwanAuditTab.html",
             "addressable": true
         },
@@ -124,7 +127,7 @@
                 "name": "Kiuwan",
                 "uri": "kiuwanTab.html",
                 "supportsTasks": [
-                    "f345ac07-f8a0-4859-bcaf-d71fd62bcf37"
+                    "ba779fde-74c7-11ee-b962-0242ac120002"
                 ]
             }
         },
@@ -139,8 +142,8 @@
                 "name": "Kiuwan Summary",
                 "uri": "kiuwanSummary.html",
                 "supportsTasks": [
-                    "f345ac07-f8a0-4859-bcaf-d71fd62bcf37",
-                    "4e6e25e3-c0b5-4986-8714-5c751945c15f"
+                    "ba779fde-74c7-11ee-b962-0242ac120002",
+                    "f2b08b72-74c7-11ee-b962-0242ac120002"
                 ],
                 "order": 20,
                 "height": 300
@@ -157,7 +160,7 @@
                 "name": "Kiuwan Audit",
                 "uri": "kiuwanAuditTab.html",
                 "supportsTasks": [
-                    "4e6e25e3-c0b5-4986-8714-5c751945c15f"
+                    "f2b08b72-74c7-11ee-b962-0242ac120002"
                 ]
             }
         },
@@ -182,14 +185,14 @@
             }
         },
         {
-            "id": "kiuwan-service-endpoint",
+            "id": "kiuwan-service-shiftleft",
             "description": "Kiuwan servide endpoint to connect to the Kiuwan platform",
             "type": "ms.vss-endpoint.service-endpoint-type",
             "targets": [
                 "ms.vss-endpoint.endpoint-types"
             ],
             "properties": {
-                "name": "kiuwan",
+                "name": "kiuwan-shiftleft",
                 "displayName": "Kiuwan Platform",
                 "url": {
                     "displayName": "Kiuwan URL",

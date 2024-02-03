@@ -1,25 +1,24 @@
-import os = require('os');
-import url = require('url');
-//LS: change old deprecated libraries from the new one
-//import tl = require('vsts-task-lib/task');
+import * as os from 'os';
+import * as url from 'url';
 import tl = require('azure-pipelines-task-lib/task');
 import {
     buildKlaCommand, setAgentTempDir, setAgentToolsDir,
     downloadInstallKla, runKiuwanLocalAnalyzer, getKiuwanRetMsg,
     getLastAnalysisResults, saveKiuwanResults, uploadKiuwanResults,
     isBuild, getKlaAgentPropertiesPath, processAgentProperties
-} from 'kiuwan-common/utils';
+} from '../kiuwan-common/utils';
+
 //LS: change old library
 //import { debug } from 'vsts-task-tool-lib';
 import { debug } from 'azure-pipelines-task-lib/task';
 
-var osPlat: string = os.platform();
-var agentHomeDir = tl.getVariable('Agent.HomeDirectory');
-var agentTempDir = tl.getVariable('Agent.TempDirectory');
+let osPlat: string = os.platform();
+let agentHomeDir = tl.getVariable('Agent.HomeDirectory');
+let agentTempDir = tl.getVariable('Agent.TempDirectory');
 if (!agentTempDir) {
     agentTempDir = setAgentTempDir(agentHomeDir, osPlat);
 }
-var agentToolsDir = tl.getVariable('Agent.ToolsDirectory');
+let agentToolsDir = tl.getVariable('Agent.ToolsDirectory');
 if (!agentToolsDir) {
     agentToolsDir = setAgentToolsDir(agentHomeDir, osPlat);
 }

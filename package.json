@@ -4,14 +4,27 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "azure-devops-extension-sdk": "^4.0.1",
+    "azure-pipelines-task-lib": "^4.6.1",
+    "glob": "^10.3.10",
     "tfx-cli": "^0.7.11",
+    "util": "^0.12.5",
     "vss-web-extension-sdk": "^5.141.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p .",
+    "postbuild": "npm run package",
+    "package": "tfx extension create",
+    "clean": "rimraf ./dist && rimraf ./*.vsix"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@types/q": "^1.5.7",
+    "azure-pipelines-tool-lib": "^2.0.7",
+    "typescript": "^4.4.4"
+  }
 }
