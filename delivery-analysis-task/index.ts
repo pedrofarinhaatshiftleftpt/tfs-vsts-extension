@@ -321,6 +321,7 @@ async function run() {
             `-cr "${changeRequest}" ` +
             `-bn "${branch}" ` +
             '-wr ' +
+            '-c '+
             `--user "${kiuwanUser}" ` +
             `--pass ${kiuwanPasswd} ` +
             `${domainOption}` +
