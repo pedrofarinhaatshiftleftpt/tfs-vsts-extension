@@ -2,7 +2,7 @@
  	"manifestVersion": 1,
 	"id": "kiuwan-analysis-extension-Shiftleft",
  	"publisher": "Shiftleft-SecureSoftwareEngineering",
- 	"version": "2.6.4",
+ 	"version": "2.6.5",
  	"name": "Shiftleft Kiuwan TFS Extension",
  	"description": "Shifleft: Analyze your applications with Kiuwan. Find relevant security vulnerabilities in your code. Run automatic code security audits. Build secure applications from the start.",
  	"public": true,
